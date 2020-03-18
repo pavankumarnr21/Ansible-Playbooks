@@ -3,7 +3,10 @@
   connection: local
   name: Reset iDRAC
   gather_facts: False
-
+  
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    
   tasks:
   - name: Reset iDRAC
     dellemc_idrac_reset:
