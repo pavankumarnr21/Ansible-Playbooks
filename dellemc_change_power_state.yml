@@ -1,5 +1,5 @@
 ---
-- hosts: AMD
+- hosts: 4SOCKET
   connection: local
   name: Configure Server Power Setting
   gather_facts: False
