@@ -1,0 +1,11 @@
+---
+- hosts: windows
+#  become: yes
+#  become_user: root
+#  become_method: su
+  tasks:
+
+  - name: Install notepadplusplus version
+    win_chocolatey:
+      name: notepadplusplus
+      version: '7.8'
