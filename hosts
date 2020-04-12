@@ -3,4 +3,4 @@ PC-6CW5Q03.welabs.com idrac_ip='100.98.8.161' idrac_user='root' idrac_password='
 [4SOCKET]
 WIN-QVDO2FES1N0 idrac_ip='100.98.8.26' idrac_user='root' idrac_password='calvin'
 [windows]
-100.98.8.190
+100.98.8.190 ansible_connection=winrm
