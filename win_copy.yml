@@ -3,7 +3,7 @@
   tasks:
 
   - win_copy:
-      src: /test/resources/wmic.ps1
+      src: /home/pavan/PSScripts/wmic.ps1
       dest: 'C:\temp\'
       remote_src: no
 
