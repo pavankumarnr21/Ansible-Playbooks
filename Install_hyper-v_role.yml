@@ -1,0 +1,25 @@
+- hosts: windows
+  tasks:
+
+  - name: Install hyper-v role
+
+    win_feature:
+
+      name: Hyper-V
+      state: present
+      include_sub_features: yes
+      include_management_tools: yes
+     # reboot_required: yes
+     # register: hyperv_install
+    register: win_feature
+
+  - name: Reboot the machine
+
+    win_reboot:
+    when: win_feature.reboot_required
+
+  - name: Wait 600 seconds for target connection to become reachable/usable
+
+    wait_for_connection:
+      delay: 60
+      timeout: 600
