@@ -6,5 +6,5 @@ WIN-QVDO2FES1N0 idrac_ip='100.98.8.26' idrac_user='root' idrac_password='calvin'
 WIN-HU0DUOVTHKI.welabs.com idrac_ip='100.98.8.38' idrac_user='root' idrac_password='calvin'
 
 [windows]
-#100.98.8.190 
+100.98.8.190 
 100.98.8.192
