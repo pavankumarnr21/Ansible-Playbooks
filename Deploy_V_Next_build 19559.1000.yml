@@ -1,0 +1,23 @@
+---
+-
+  connection: local
+  gather_facts: false
+  hosts: 15G_AMD
+  name: Booting to Network Operating System image
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: "Booting to Network Operating System image"
+      idrac_os_deployment:
+        idrac_ip: "{{ idrac_ip }}"
+        idrac_password: "{{ idrac_password }}"
+        idrac_user: "{{ idrac_user }}"
+        share_name: "100.98.8.138:/opt/dell/dellemcrepositorymanager/export"
+        iso_image: "19559.1000.200131-1437.rs_prerelease_SERVER_OEMRET_x64FRE_en-us.iso"
+        expose_duration: 180
+
+      tags:
+        - network_iso
+
