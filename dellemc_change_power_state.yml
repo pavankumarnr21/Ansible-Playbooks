@@ -1,5 +1,5 @@
 ---
-- hosts: test
+- hosts: INTEL14G
   connection: local
   name: Configure Server Power Setting
   gather_facts: False
