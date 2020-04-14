@@ -1,9 +1,9 @@
 [AMD]
 PC-6CW5Q03.welabs.com idrac_ip='100.98.8.161' idrac_user='root' idrac_password='calvin'
 
-[INTEL14G]
-WIN-QVDO2FES1N0 idrac_ip='100.98.8.26' idrac_user='root' idrac_password='calvin' ansible_winrm_server_cert_validation=ignore 
-WIN-HU0DUOVTHKI.welabs.com idrac_ip='100.98.8.38' idrac_user='root' idrac_password='calvin' ansible_winrm_server_cert_validation=ignore
+[14G]
+WIN-QVDO2FES1N0 idrac_ip='100.98.8.26' idrac_user='root' idrac_password='calvin'  
+WIN-HU0DUOVTHKI.welabs.com idrac_ip='100.98.8.38' idrac_user='root' idrac_password='calvin' 
 
 [windows]
 100.98.8.190 
