@@ -8,3 +8,6 @@ WIN-HU0DUOVTHKI.welabs.com idrac_ip='100.98.8.38' idrac_user='root' idrac_passwo
 [windows]
 100.98.8.190 
 100.98.8.192
+
+[test]
+WIN-QVDO2FES1N0 idrac_ip='100.98.8.26' idrac_user='root' idrac_password='calvin' ansible_user=Administrator ansible_password=Dell123 ansible_port=5986 ansible_connection=winrm ansible_winrm_server_cert_validation=ignore
