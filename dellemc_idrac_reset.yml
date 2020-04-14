@@ -1,5 +1,5 @@
 ---
-- hosts: INTEL14G
+- hosts: 14G
   connection: local
   name: Reset iDRAC
   gather_facts: False
