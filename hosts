@@ -9,6 +9,9 @@ WIN-HU0DUOVTHKI.welabs.com idrac_ip='100.98.8.38' idrac_user='root' idrac_passwo
 100.98.8.190 
 100.98.8.192
 
+[intel]
+100.98.8.32
+
 [notepad++]
 100.98.8.190
 
