@@ -1,0 +1,10 @@
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Add hosts from extra-vars to "temp" group
+    add_host:
+      name: "{{ item }}"
+      groups: temp
+    with_items: "{{ hosts }}"
+
