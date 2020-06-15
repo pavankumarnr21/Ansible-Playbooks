@@ -1,0 +1,20 @@
+---
+- name: Create directory structure
+  win_file:
+    path: C:\Temp
+    state: directory
+
+- name: Download VHD zip
+  win_get_url:
+    url: http://100.98.12.23:8080/win_vhdx/{{ vhdx_zip_filename }}
+    dest: C:\Temp\{{ vhdx_zip_filename }}
+    checksum: "{{ vhdx_zip_sha1sum }}"
+    checksum_algorithm: sha1
+    force: no
+
+- name: Extract VHD zip
+  win_unzip:
+    creates: C:\Temp\VHDs
+    src: C:\Temp\{{ vhdx_zip_filename }}
+    dest: C:\Temp\VHDs
+    delete_archive: no
