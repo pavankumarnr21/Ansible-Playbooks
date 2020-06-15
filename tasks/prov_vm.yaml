@@ -1,0 +1,28 @@
+---
+- name: Clone vhdx
+  win_copy:
+    src: "{{ src_vhd }}"
+    dest: "{{ dest_vhd }}"
+    remote_src: yes
+    force: no
+  loop: "{{ range(lookup('vars', 'num_vms'))|list }}"
+
+- name: Create VMs
+  win_hyperv_guest:
+    name: "{{ vm_name }}"
+    generation: "{{ vm_generation }}"
+    cpu: "{{ vm_cpu }}"
+    memory: "{{ vm_memory }}"
+    network_switch: "{{ vm_network_switch }}"
+    diskpath: "{{ dest_vhd }}"
+    state: present
+  loop: "{{ range(lookup('vars', 'num_vms'))|list }}"
+  register: new_vms
+
+- debug: var=new_vms.results
+
+- name: Poweron VMs
+  win_hyperv_guest:
+    name: "{{ vm_name }}"
+    state: started
+  loop: "{{ range(lookup('vars', 'num_vms'))|list }}"
