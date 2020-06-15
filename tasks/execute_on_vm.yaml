@@ -1,0 +1,33 @@
+---
+- name: Get VM IP Address
+  win_shell: "(Get-VMNetworkAdapter -VMName {{ vm_name }}).IpAddresses[0]"
+  register: vm_ip_out
+  loop: "{{ range(lookup('vars', 'num_vms'))|list }}"
+
+- set_fact:
+    vm_ips: "{{ item.stdout_lines }}"
+  with_items: "{{ vm_ip_out.results }}"
+
+# - debug:
+#     msg="{{item}}"
+#   with_items: "{{ vm_ips }}"
+
+- name: Wait for WinRM
+  win_wait_for:
+    host: "{{item}}"
+    port: 5985
+  with_items: "{{ vm_ips }}"
+
+- name: Run script on VM
+  win_shell: |
+    $username = "{{ vm_username }}"
+    $password = ConvertTo-SecureString "{{ vm_password }}" -AsPlainText -Force
+    $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $password
+    Invoke-Command -VMName "{{ vm_name }}" -ScriptBlock { {{ stress_cmd }} } -Credential $cred
+  register: script_out
+  loop: "{{ range(lookup('vars', 'num_vms'))|list }}"
+
+- debug:
+    msg="{{item.stdout_lines}}"
+  with_items: "{{ script_out.results }}"
+
