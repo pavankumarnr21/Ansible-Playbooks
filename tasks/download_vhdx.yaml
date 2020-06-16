@@ -6,7 +6,8 @@
 
 - name: Download VHD zip
   win_get_url:
-    url: http://100.98.12.23:8080/win_vhdx/{{ vhdx_zip_filename }}
+    #url: http://100.98.12.23:8080/win_vhdx/{{ vhdx_zip_filename }}
+    url: http://100.98.12.23:8080/winhttp/vhdx/{{ vhdx_zip_filename }}
     dest: C:\Temp\{{ vhdx_zip_filename }}
     checksum: "{{ vhdx_zip_sha1sum }}"
     checksum_algorithm: sha1
