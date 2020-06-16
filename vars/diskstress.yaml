@@ -8,7 +8,7 @@ vm_cpu: 2
 vm_memory: 4096MB
 vm_network_switch: External
 vm_username: Administrator
-vm_password: Dell@1234
+vm_password: Dell123
 src_vhd: "C:\\Temp\\VHDs\\Virtual Hard Disks\\VM_WS2019-10.0.17763.774_STD_MUI.vhdx"
 dest_vhd: "C:\\Users\\Public\\Documents\\Hyper-V\\Virtual hard disks\\stressvm-{{item}}.vhdx"
 
