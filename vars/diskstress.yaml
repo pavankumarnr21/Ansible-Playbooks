@@ -1,0 +1,15 @@
+---
+vhdx_zip_filename: ws19-mui-std-af.zip
+vhdx_zip_sha1sum: aea843fb3869d9860098629f08b1d71822fee24c
+
+vm_name: stressvm-{{item}}
+vm_generation: 2
+vm_cpu: 2
+vm_memory: 4096MB
+vm_network_switch: External
+vm_username: Administrator
+vm_password: Dell@1234
+src_vhd: "C:\\Temp\\VHDs\\Virtual Hard Disks\\VM_WS2019-10.0.17763.774_STD_MUI.vhdx"
+dest_vhd: "C:\\Users\\Public\\Documents\\Hyper-V\\Virtual hard disks\\stressvm-{{item}}.vhdx"
+
+stress_cmd: Diskspd.exe -b8K -d{{ duration }} -h -L -o2 -t4 -r -w30 -c50M c:\io.dat
