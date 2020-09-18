@@ -1,0 +1,15 @@
+
+---
+- hosts: windows
+  tasks:
+
+  - name: Create directory structure
+    win_file:
+      path: C:\Temp\
+      state: directory
+
+  - name: Download PassMark using get_url
+    win_get_url:
+      url: https://www.passmark.com/downloads/rebooter.zip
+      dest: C:\Temp\
+
