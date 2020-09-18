@@ -1,0 +1,22 @@
+---
+-
+  connection: local
+  gather_facts: false
+  hosts: WS2019_Ref_image
+  name: Booting to Network Operating System image
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: "Booting to Network Operating System image"
+      idrac_os_deployment:
+        idrac_ip: "{{ idrac_ip }}"
+        idrac_password: "{{ idrac_password }}"
+        idrac_user: "{{ idrac_user }}"
+        share_name: "100.98.8.138:/opt/dell/dellemcrepositorymanager/export"
+        iso_image: "WS2019_en-US_x64_Datacenter_CRC_0xB3C4A6B5.ISO"
+        expose_duration: 180
+
+      tags:
+        - network_iso
