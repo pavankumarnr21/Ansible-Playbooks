@@ -11,5 +11,9 @@
   - name: Output first disk size
     debug:
       var: ansible_facts.disks[0].size
+  - name: Output second disk size
+    debug:
       var: ansible_facts.disks[1].size
+  - name: Output 3rd disk size
+    debug:
       var: ansible_facts.disks[2].size
